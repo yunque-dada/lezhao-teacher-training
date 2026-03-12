@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识要点 - 乐造AI教务平台</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #f59e0b; --primary-dark: #d97706;
+            --secondary: #10b981; --purple: #8b5cf6; --pink: #ec4899;
+            --dark: #0f172a; --dark-soft: #334155;
+            --gray: #64748b; --light: #f8fafc; --white: #ffffff;
+        }
+        body { font-family: 'Noto Sans SC', sans-serif; background: var(--light); color: var(--dark-soft); line-height: 1.7; }
+        .header { background: var(--white); padding: 1rem 0; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .nav { display: flex; gap: 2rem; }
+        .nav a { color: var(--dark-soft); text-decoration: none; font-weight: 500; }
+        .nav a:hover { color: var(--primary); }
+        .nav .active { color: var(--primary); }
+        
+        .hero { background: linear-gradient(135deg, #10b981, #34d399); color: white; padding: 3rem 0; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        
+        .section { padding: 3rem 0; }
+        .section-title { font-size: 1.75rem; margin-bottom: 2rem; text-align: center; }
+        
+        .knowledge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        
+        .knowledge-card { background: var(--white); border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .card-header { padding: 1.5rem; color: white; }
+        .card-header h3 { font-size: 1.5rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .card-header p { opacity: 0.9; font-size: 0.95rem; }
+        
+        .card-body { padding: 1.5rem; }
+        .card-body h4 { font-size: 1rem; color: var(--dark); margin: 1rem 0 0.75rem; }
+        .point-list { list-style: none; }
+        .point-list li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; }
+        .point-list li::before { content: '✓'; position: absolute; left: 0; color: var(--secondary); font-weight: bold; }
+        
+        .gear-section .card-header { background: linear-gradient(135deg, var(--primary), #fbbf24); }
+        .lock-section .card-header { background: linear-gradient(135deg, var(--secondary), #6ee7b7); }
+        .structure-section .card-header { background: linear-gradient(135deg, var(--purple), #a78bfa); }
+        .drive-section .card-header { background: linear-gradient(135deg, var(--pink), #f472b6); }
+        
+        .examples { background: var(--light); padding: 1rem; border-radius: 0.5rem; margin-top: 1rem; }
+        .examples h5 { font-size: 0.9rem; color: var(--dark); margin-bottom: 0.5rem; }
+        .examples p { font-size: 0.85rem; color: var(--gray); }
+        
+        .tip-box { background: #fef3c7; border-left: 4px solid var(--primary); padding: 1rem; margin-top: 1rem; border-radius: 0 0.5rem 0.5rem 0; }
+        .tip-box strong { color: var(--primary-dark); }
+        
+        .footer { background: var(--dark); color: var(--gray); padding: 2rem 0; text-align: center; }
+        @media(max-width: 768px) { .nav { display: none; } .knowledge-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">🎓 乐造AI教务</a>
+                <nav class="nav">
+                    <a href="index.html">首页</a>
+                    <a href="parts.html">零件认识</a>
+                    <a href="knowledge.html" class="active">知识要点</a>
+                    <a href="ppt.html">PPT资源</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>⚙️ 知识要点</h1>
+            <p>机械原理核心知识 - 成为专业的乐高老师</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="knowledge-grid">
+                <!-- 齿轮传动 -->
+                <div class="knowledge-card gear-section">
+                    <div class="card-header">
+                        <h3>⚙️ 齿轮传动</h3>
+                        <p>利用齿轮传递动力和运动</p>
+                    </div>
+                    <div class="card-body">
+                        <h4>📌 核心原理</h4>
+                        <ul class="point-list">
+                            <li><strong>平行传动：</strong>两个齿轮平行啮合，旋转方向相反</li>
+                            <li><strong>垂直传动：</strong>使用冠齿轮改变传动方向（90度）</li>
+                            <li><strong>加速传动：</strong>小齿轮驱动大齿轮，速度减慢，力量增大</li>
+                            <li><strong>减速传动：</strong>大齿轮驱动小齿轮，速度加快，力量减小</li>
+                        </ul>
+                        
+                        <div class="examples">
+                            <h5>🔍 常见应用</h5>
+                            <p>风扇、手摇发电机、搅拌机、传送带等</p>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <strong>💡 教学要点：</strong>齿轮传动是机械原理的核心，要让孩子理解"齿对齿"才能传动的道理
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 互锁结构 -->
+                <div class="knowledge-card lock-section">
+                    <div class="card-header">
+                        <h3>🏗️ 互锁结构</h3>
+                        <p>让积木搭建更稳固的关键技术</p>
+                    </div>
+                    <div class="card-body">
+                        <h4>📌 6种互锁方式</h4>
+                        <ul class="point-list">
+                            <li><strong>平面互锁：</strong>上下两层砖块交错排列</li>
+                            <li><strong>内缩互锁：</strong>又称金字塔结构，向内收缩搭建</li>
+                            <li><strong>外扩互锁：</strong>又称倒金字塔，向外扩展搭建</li>
+                            <li><strong>两点固定：</strong>两点确定一条直线，增强稳定性</li>
+                            <li><strong>三点固定：</strong>三角形是最稳定的形状</li>
+                            <li><strong>交叉互锁：</strong>交叉搭建，整体性更强</li>
+                        </ul>
+                        
+                        <div class="tip-box">
+                            <strong>💡 教学要点：</strong>互锁是搭建坚固作品的关键，让孩子观察"缝在哪里"
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 常用结构 -->
+                <div class="knowledge-card structure-section">
+                    <div class="card-header">
+                        <h3>📐 常用结构</h3>
+                        <p>稳定搭建的基本结构原则</p>
+                    </div>
+                    <div class="card-body">
+                        <h4>📌 核心结构</h4>
+                        <ul class="point-list">
+                            <li><strong>三角形稳定性：</strong>三角形是最稳定的平面结构</li>
+                            <li><strong>四边形可变性：</strong>四边形容易变形，需要加固</li>
+                            <li><strong>对称与平衡：</strong>左右对称让作品更美观稳定</li>
+                            <li><strong>底部加重：</strong>底部重一些让作品更稳</li>
+                        </ul>
+                        
+                        <div class="examples">
+                            <h5>🔍 案例</h5>
+                            <p>金字塔底部宽、埃菲尔铁塔的三角形结构</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 传动方式 -->
+                <div class="knowledge-card drive-section">
+                    <div class="card-header">
+                        <h3>🎯 传动方式</h3>
+                        <p>不同的动力传递方式</p>
+                    </div>
+                    <div class="card-body">
+                        <h4>📌 4大传动方式</h4>
+                        <ul class="point-list">
+                            <li><strong>齿轮传动：</strong>齿对齿传动，效率高，精确</li>
+                            <li><strong>皮带传动：</strong>用橡皮筋传动，可缓冲</li>
+                            <li><strong>链条传动：</strong>类似自行车链条，距离远</li>
+                            <li><strong>蜗轮蜗杆：</strong>自锁功能，只能单向转动</li>
+                        </ul>
+                        
+                        <div class="examples">
+                            <h5>🔍 应用场景</h5>
+                            <p>齿轮：精密传动 | 皮带：距离较远 | 链条：远距离 | 蜗轮：升降</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 教学重点总结 -->
+            <div style="background: var(--white); border-radius: 1rem; padding: 2rem; margin-top: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">📋 教学重点总结</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="background: var(--light); padding: 1rem; border-radius: 0.5rem;">
+                        <strong>✅ 一定要会</strong>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--gray);">
+                            <li>平面互锁</li>
+                            <li>齿轮平行传动</li>
+                            <li>三角形稳定性</li>
+                        </ul>
+                    </div>
+                    <div style="background: var(--light); padding: 1rem; border-radius: 0.5rem;">
+                        <strong>⭐ 进阶掌握</strong>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--gray);">
+                            <li>垂直传动</li>
+                            <li>加速/减速</li>
+                            <li>皮带传动</li>
+                        </ul>
+                    </div>
+                    <div style="background: var(--light); padding: 1rem; border-radius: 0.5rem;">
+                        <strong>🏆 高级技能</strong>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--gray);">
+                            <li>蜗轮蜗杆</li>
+                            <li>复合传动</li>
+                            <li>棘轮棘爪</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 乐造AI科技教育中心</p>
+    </footer>
+</body>
+</html>

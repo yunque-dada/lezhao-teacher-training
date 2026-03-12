@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>零件认识 - 乐造AI教务平台</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #f59e0b; --primary-dark: #d97706;
+            --secondary: #10b981;
+            --dark: #0f172a; --dark-soft: #334155;
+            --gray: #64748b; --light: #f8fafc; --white: #ffffff;
+        }
+        body { font-family: 'Noto Sans SC', sans-serif; background: var(--light); color: var(--dark-soft); line-height: 1.7; }
+        .header { background: var(--white); padding: 1rem 0; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .nav { display: flex; gap: 2rem; }
+        .nav a { color: var(--dark-soft); text-decoration: none; font-weight: 500; }
+        .nav a:hover { color: var(--primary); }
+        .nav .active { color: var(--primary); }
+        
+        .hero { background: linear-gradient(135deg, var(--primary), #fbbf24); color: white; padding: 3rem 0; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .hero p { opacity: 0.9; font-size: 1.1rem; }
+        
+        .section { padding: 3rem 0; }
+        .section-title { font-size: 1.75rem; margin-bottom: 2rem; text-align: center; }
+        
+        .parts-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .category { background: var(--white); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .category h3 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem; }
+        .parts-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; }
+        .part-item { background: var(--light); padding: 1rem; border-radius: 0.5rem; text-align: center; transition: all 0.2s; }
+        .part-item:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .part-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .part-name { font-weight: 600; font-size: 0.9rem; color: var(--dark); }
+        .part-desc { font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem; }
+        
+        .table-section { background: var(--white); border-radius: 1rem; padding: 2rem; margin-top: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .table-section h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: var(--light); font-weight: 600; }
+        td { font-size: 0.9rem; }
+        
+        .footer { background: var(--dark); color: var(--gray); padding: 2rem 0; text-align: center; }
+        @media(max-width: 768px) { .nav { display: none; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">🎓 乐造AI教务</a>
+                <nav class="nav">
+                    <a href="index.html">首页</a>
+                    <a href="parts.html" class="active">零件认识</a>
+                    <a href="knowledge.html">知识要点</a>
+                    <a href="ppt.html">PPT资源</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>🧱 零件认识</h1>
+            <p>乐高9656教具零件详解 - 认识每一个搭建基础</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">📦 积木零件分类</h2>
+            
+            <div class="parts-categories">
+                <!-- 砖块类 -->
+                <div class="category">
+                    <h3>🧱 砖块 (Bricks)</h3>
+                    <div class="parts-list">
+                        <div class="part-item"><div class="part-icon">🟦</div><div class="part-name">2x4 砖</div><div class="part-desc">基础单元</div></div>
+                        <div class="part-item"><div class="part-icon">🟦</div><div class="part-name">2x2 砖</div><div class="part-desc">正方单元</div></div>
+                        <div class="part-item"><div class="part-icon">🟦</div><div class="part-name">1x4 砖</div><div class="part-desc">长条单元</div></div>
+                        <div class="part-item"><div class="part-icon">🟦</div><div class="part-name">1x2 砖</div><div class="part-desc">短条单元</div></div>
+                        <div class="part-item"><div class="part-icon">🟦</div><div class="part-name">2x3 砖</div><div class="part-desc">矩形单元</div></div>
+                    </div>
+                </div>
+                
+                <!-- 板类 -->
+                <div class="category">
+                    <h3>📐 板 (Plates)</h3>
+                    <div class="parts-list">
+                        <div class="part-item"><div class="part-icon">⬜</div><div class="part-name">2x4 板</div><div class="part-desc">薄型基础</div></div>
+                        <div class="part-item"><div class="part-icon">⬜</div><div class="part-name">2x2 板</div><div class="part-desc">薄型正方</div></div>
+                        <div class="part-item"><div class="part-icon">⬜</div><div class="part-name">1x4 板</div><div class="part-desc">薄型长条</div></div>
+                        <div class="part-item"><div class="part-icon">⬜</div><div class="part-name">1x2 板</div><div class="part-desc">薄型短条</div></div>
+                    </div>
+                </div>
+                
+                <!-- 梁类 -->
+                <div class="category">
+                    <h3>🦴 梁 (Beams)</h3>
+                    <div class="parts-list">
+                        <div class="part-item"><div class="part-icon">━</div><div class="part-name">长梁</div><div class="part-desc">结构支撑</div></div>
+                        <div class="part-item"><div class="part-icon">━</div><div class="part-name">中梁</div><div class="part-desc">中等长度</div></div>
+                        <div class="part-item"><div class="part-icon">━</div><div class="part-name">短梁</div><div class="part-desc">短距连接</div></div>
+                        <div class="part-item"><div class="part-icon">━</div><div class="part-name">角度梁</div><div class="part-desc">角度搭建</div></div>
+                    </div>
+                </div>
+                
+                <!-- 齿轮类 -->
+                <div class="category">
+                    <h3>⚙️ 齿轮 (Gears)</h3>
+                    <div class="parts-list">
+                        <div class="part-item"><div class="part-icon">⚙</div><div class="part-name">8齿齿轮</div><div class="part-desc">小齿轮</div></div>
+                        <div class="part-item"><div class="part-icon">⚙</div><div class="part-name">24齿齿轮</div><div class="part-desc">中齿轮</div></div>
+                        <div class="part-item"><div class="part-icon">⚙</div><div class="part-name">40齿齿轮</div><div class="part-desc">大齿轮</div></div>
+                        <div class="part-item"><div class="part-icon">⚙</div><div class="part-name">冠齿轮</div><div class="part-desc">改变方向</div></div>
+                    </div>
+                </div>
+                
+                <!-- 轴类 -->
+                <div class="category">
+                    <h3>🔧 轴 (Axles)</h3>
+                    <div class="parts-list">
+                        <div class="part-item"><div class="part-icon">│</div><div class="part-name">长轴</div><div class="part-desc">长距离传动</div></div>
+                        <div class="part-item"><div class="part-icon">│</div><div class="part-name">中轴</div><div class="part-desc">中等距离</div></div>
+                        <div class="part-item"><div class="part-icon">│</div><div class="part-name">短轴</div><div class="part-desc">短距离</div></div>
+                        <div class="part-item"><div class="part-icon">│</div><div class="part-name">带销轴</div><div class="part-desc">固定连接</div></div>
+                    </div>
+                </div>
+                
+                <!-- 销类 -->
+                <div class="category">
+                    <h3>🔩 销 (Pins)</h3>
+                    <div class="parts-list">
+                        <div class="part-item"><div class="part-icon">○</div><div class="part-name">普通销</div><div class="part-desc">基本连接</div></div>
+                        <div class="part-item"><div class="part-icon">○</div><div class="part-name">摩擦销</div><div class="part-desc">防滑脱</div></div>
+                        <div class="part-item"><div class="part-icon">○</div><div class="part-name">定位销</div><div class="part-desc">精准定位</div></div>
+                        <div class="part-item"><div class="part-icon">○</div><div class="part-name">轴销</div><div class="part-desc">轴向连接</div></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 详细对照表 -->
+            <div class="table-section">
+                <h3>📋 零件编号对照表</h3>
+                <table>
+                    <thead>
+                        <tr><th>零件名称</th><th>编号</th><th>数量</th><th>用途</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>2x4 砖块</td><td>3001</td><td>4</td><td>基础搭建</td></tr>
+                        <tr><td>2x2 砖块</td><td>3003</td><td>4</td><td>基础搭建</td></tr>
+                        <tr><td>1x2 砖块</td><td>3004</td><td>8</td><td>细节填充</td></tr>
+                        <tr><td>2x4 板</td><td>3023</td><td>6</td><td>薄层搭建</td></tr>
+                        <tr><td>1x4 板</td><td>3023</td><td>4</td><td>薄层细节</td></tr>
+                        <tr><td>8齿齿轮</td><td>3647</td><td>2</td><td>传动</td></tr>
+                        <tr><td>24齿齿轮</td><td>3648</td><td>2</td><td>传动</td></tr>
+                        <tr><td>长轴</td><td>4006</td><td>2</td><td>传动轴</td></tr>
+                        <tr><td>短轴</td><td>4004</td><td>4</td><td>传动轴</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 乐造AI科技教育中心</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPT资源 - 乐造AI教务平台</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #f59e0b; --primary-dark: #d97706;
+            --secondary: #10b981;
+            --dark: #0f172a; --dark-soft: #334155;
+            --gray: #64748b; --light: #f8fafc; --white: #ffffff;
+        }
+        body { font-family: 'Noto Sans SC', sans-serif; background: var(--light); color: var(--dark-soft); line-height: 1.7; }
+        .header { background: var(--white); padding: 1rem 0; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .nav { display: flex; gap: 2rem; }
+        .nav a { color: var(--dark-soft); text-decoration: none; font-weight: 500; }
+        .nav a:hover { color: var(--primary); }
+        .nav .active { color: var(--primary); }
+        
+        .hero { background: linear-gradient(135deg, #8b5cf6, #a78bfa); color: white; padding: 3rem 0; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        
+        .section { padding: 3rem 0; }
+        
+        .ppt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        
+        .ppt-card { background: var(--white); border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s; }
+        .ppt-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+        
+        .ppt-preview { height: 180px; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .ppt-preview::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 20px, #e2e8f0 20px, #e2e8f0 21px); }
+        .ppt-icon { width: 80px; height: 100px; background: linear-gradient(135deg, #ef4444, #dc2626); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 2rem; position: relative; z-index: 1; box-shadow: 0 4px 12px rgba(239,68,68,0.3); }
+        .ppt-icon span { font-size: 0.75rem; font-weight: normal; margin-top: 4px; }
+        .ppt-badge { position: absolute; top: 1rem; right: 1rem; background: var(--secondary); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
+        
+        .ppt-info { padding: 1.5rem; }
+        .ppt-info h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--dark); }
+        .ppt-info > p { font-size: 0.9rem; color: var(--gray); margin-bottom: 1rem; }
+        
+        .ppt-meta { display: flex; gap: 1rem; font-size: 0.85rem; color: var(--gray); margin-bottom: 1rem; }
+        .ppt-meta span { display: flex; align-items: center; gap: 0.25rem; }
+        
+        .ppt-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+        .ppt-tag { background: var(--light); color: var(--gray); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; }
+        
+        .ppt-btn { display: block; text-align: center; background: var(--primary); color: white; padding: 0.75rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; transition: background 0.2s; }
+        .ppt-btn:hover { background: var(--primary-dark); }
+        .ppt-btn.disabled { background: var(--gray); cursor: not-allowed; }
+        
+        .coming { background: repeating-linear-gradient(45deg, #e2e8f0, #e2e8f0 10px, #f1f5f9 10px, #f1f5f9 20px); }
+        
+        .upload-section { background: var(--white); border: 2px dashed #e2e8f0; border-radius: 1rem; padding: 3rem; text-align: center; margin-top: 2rem; }
+        .upload-section h3 { margin-bottom: 1rem; }
+        .upload-section p { color: var(--gray); margin-bottom: 1.5rem; }
+        .upload-btn { background: var(--secondary); color: white; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; display: inline-block; }
+        
+        .footer { background: var(--dark); color: var(--gray); padding: 2rem 0; text-align: center; }
+        @media(max-width: 768px) { .nav { display: none; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">🎓 乐造AI教务</a>
+                <nav class="nav">
+                    <a href="index.html">首页</a>
+                    <a href="parts.html">零件认识</a>
+                    <a href="knowledge.html">知识要点</a>
+                    <a href="ppt.html" class="active">PPT资源</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>📚 PPT教学资源</h1>
+            <p>配套教学课件 - 老师上课的好帮手</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="ppt-grid">
+                <!-- PPT 1 -->
+                <div class="ppt-card">
+                    <div class="ppt-preview">
+                        <div class="ppt-icon">PPT<span>24</span></div>
+                        <span class="ppt-badge">已上传</span>
+                    </div>
+                    <div class="ppt-info">
+                        <h3>🎓 乐高教育理念入门</h3>
+                        <p>乐高教育理念、4C教学法、课程体系介绍</p>
+                        <div class="ppt-meta">
+                            <span>📄 20页</span>
+                            <span>⏱️ 30分钟</span>
+                        </div>
+                        <div class="ppt-tags">
+                            <span class="ppt-tag">入门必学</span>
+                            <span class="ppt-tag">新手必备</span>
+                        </div>
+                        <a href="#" class="ppt-btn disabled">⏳ 即将开放</a>
+                    </div>
+                </div>
+                
+                <!-- PPT 2 -->
+                <div class="ppt-card">
+                    <div class="ppt-preview">
+                        <div class="ppt-icon">PPT<span>35</span></div>
+                        <span class="ppt-badge">已上传</span>
+                    </div>
+                    <div class="ppt-info">
+                        <h3>🧱 乐高9656零件认识</h3>
+                        <p>教具零件详细介绍、功能说明、数量统计</p>
+                        <div class="ppt-meta">
+                            <span>📄 35页</span>
+                            <span>⏱️ 45分钟</span>
+                        </div>
+                        <div class="ppt-tags">
+                            <span class="ppt-tag">零件教学</span>
+                            <span class="ppt-tag">基础知识</span>
+                        </div>
+                        <a href="#" class="ppt-btn disabled">⏳ 即将开放</a>
+                    </div>
+                </div>
+                
+                <!-- PPT 3 -->
+                <div class="ppt-card">
+                    <div class="ppt-preview">
+                        <div class="ppt-icon">PPT<span>28</span></div>
+                        <span class="ppt-badge">已上传</span>
+                    </div>
+                    <div class="ppt-info">
+                        <h3>⚙️ 齿轮传动原理</h3>
+                        <p>齿轮传动类型、加速减速原理、教学案例</p>
+                        <div class="ppt-meta">
+                            <span>📄 28页</span>
+                            <span>⏱️ 40分钟</span>
+                        </div>
+                        <div class="ppt-tags">
+                            <span class="ppt-tag">机械原理</span>
+                            <span class="ppt-tag">核心知识</span>
+                        </div>
+                        <a href="#" class="ppt-btn disabled">⏳ 即将开放</a>
+                    </div>
+                </div>
+                
+                <!-- PPT 4 -->
+                <div class="ppt-card">
+                    <div class="ppt-preview">
+                        <div class="ppt-icon">PPT<span>32</span></div>
+                        <span class="ppt-badge">已上传</span>
+                    </div>
+                    <div class="ppt-info">
+                        <h3>🏗️ 互锁结构教学</h3>
+                        <p>6种互锁结构详解、搭建技巧、注意事项</p>
+                        <div class="ppt-meta">
+                            <span>📄 32页</span>
+                            <span>⏱️ 50分钟</span>
+                        </div>
+                        <div class="ppt-tags">
+                            <span class="ppt-tag">结构教学</span>
+                            <span class="ppt-tag">进阶技能</span>
+                        </div>
+                        <a href="#" class="ppt-btn disabled">⏳ 即将开放</a>
+                    </div>
+                </div>
+                
+                <!-- PPT 5 -->
+                <div class="ppt-card">
+                    <div class="ppt-preview coming">
+                        <div class="ppt-icon" style="background: linear-gradient(135deg, #94a3b8, #64748b);">PPT<span>?</span></div>
+                        <span class="ppt-badge" style="background: #64748b;">即将推出</span>
+                    </div>
+                    <div class="ppt-info">
+                        <h3>🔩 常用机械结构</h3>
+                        <p>皮带传动、链条传动、复合传动系统</p>
+                        <div class="ppt-meta">
+                            <span>📄 待定</span>
+                            <span>⏱️ 待定</span>
+                        </div>
+                        <div class="ppt-tags">
+                            <span class="ppt-tag">进阶内容</span>
+                        </div>
+                        <a href="#" class="ppt-btn disabled">⏳ 敬请期待</a>
+                    </div>
+                </div>
+                
+                <!-- PPT 6 -->
+                <div class="ppt-card">
+                    <div class="ppt-preview coming">
+                        <div class="ppt-icon" style="background: linear-gradient(135deg, #94a3b8, #64748b);">PPT<span>?</span></div>
+                        <span class="ppt-badge" style="background: #64748b;">即将推出</span>
+                    </div>
+                    <div class="ppt-info">
+                        <h3>👨‍🏫 教学技巧大全</h3>
+                        <p>课堂管理、提问技巧、点评方法、课程设计</p>
+                        <div class="ppt-meta">
+                            <span>📄 待定</span>
+                            <span>⏱️ 待定</span>
+                        </div>
+                        <div class="ppt-tags">
+                            <span class="ppt-tag">教学技巧</span>
+                        </div>
+                        <a href="#" class="ppt-btn disabled">⏳ 敬请期待</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 上传提示 -->
+            <div class="upload-section">
+                <h3>📤 上传自己的PPT</h3>
+                <p>老师可以上传自己制作的PPT，丰富教学资源库</p>
+                <a href="#" class="upload-btn">🔐 登录后上传</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 乐造AI科技教育中心</p>
+    </footer>
+</body>
+</html>
