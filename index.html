@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐造AI教务平台 | 老师培训教程</title>
+    <meta name="description" content="乐造AI乐高大颗粒老师培训平台 - 零件认识、知识点讲解、PPT教学资源">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== Design Tokens ===== */
+        :root {
+            --primary: #f59e0b;
+            --primary-dark: #d97706;
+            --primary-light: #fbbf24;
+            --secondary: #10b981;
+            --accent: #ef4444;
+            --dark: #0f172a;
+            --dark-soft: #334155;
+            --gray: #64748b;
+            --gray-light: #94a3b8;
+            --light: #f8fafc;
+            --white: #ffffff;
+            
+            --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+            
+            --font-display: 'Outfit', 'Noto Sans SC', sans-serif;
+            --font-body: 'Noto Sans SC', sans-serif;
+            
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+            
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+        }
+        
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--light);
+            color: var(--dark-soft);
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* ===== Header ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-warm);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: var(--dark-soft);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color var(--transition-fast);
+        }
+        
+        .nav-link:hover { color: var(--primary); }
+        
+        .nav-cta {
+            background: var(--gradient-warm);
+            color: white !important;
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+        }
+        
+        /* ===== Hero ===== */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.2) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 0.25rem 1rem;
+            border-radius: var(--radius-full);
+            color: var(--primary-light);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 span {
+            background: var(--gradient-warm);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-desc {
+            font-size: 1.125rem;
+            color: var(--gray-light);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition-base);
+        }
+        
+        .btn-primary {
+            background: var(--gradient-warm);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* ===== Modules ===== */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-label {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-desc {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ===== Cards Grid ===== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            text-decoration: none;
+            color: inherit;
+            border: 2px solid transparent;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-warm);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        .card:nth-child(2) .card-icon { background: var(--gradient-success); }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .card-meta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray-light);
+        }
+        
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        /* ===== Knowledge Section ===== */
+        .knowledge-section {
+            background: var(--white);
+        }
+        
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .knowledge-card {
+            background: var(--light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .knowledge-card:nth-child(2) { border-left-color: var(--secondary); }
+        .knowledge-card:nth-child(3) { border-left-color: #8b5cf6; }
+        .knowledge-card:nth-child(4) { border-left-color: #ec4899; }
+        
+        .knowledge-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .knowledge-card ul {
+            list-style: none;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .knowledge-card li {
+            padding: 0.35rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+        
+        .knowledge-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* ===== Parts Section ===== */
+        .parts-section {
+            background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+        }
+        
+        .parts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        
+        .part-item {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+        
+        .part-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .part-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .part-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--dark-soft);
+        }
+        
+        .part-desc {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 0.25rem;
+        }
+        
+        /* ===== PPT Section ===== */
+        .ppt-section {
+            background: var(--dark);
+            color: white;
+        }
+        
+        .ppt-section .section-label {
+            background: rgba(255,255,255,0.1);
+            color: var(--primary-light);
+        }
+        
+        .ppt-section .section-title { color: white; }
+        
+        .ppt-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .ppt-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            transition: all var(--transition-base);
+        }
+        
+        .ppt-card:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--primary);
+        }
+        
+        .ppt-card h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ppt-card p {
+            color: var(--gray-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .ppt-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-light);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .ppt-download:hover { text-decoration: underline; }
+        
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--dark);
+            color: var(--gray-light);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* ===== Mobile ===== */
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .hero { min-height: 60vh; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🎓</span>
+                    乐造AI教务
+                </a>
+                <nav class="nav">
+                    <a href="#modules" class="nav-link">培训模块</a>
+                    <a href="#knowledge" class="nav-link">知识要点</a>
+                    <a href="#parts" class="nav-link">零件认识</a>
+                    <a href="#ppt" class="nav-link">PPT资源</a>
+                    <a href="#" class="nav-link nav-cta">登录</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🏆 乐高大颗粒教师培训</div>
+                <h1>成为优秀的<span>乐高老师</span></h1>
+                <p class="hero-desc">
+                    系统化学习乐高大颗粒课程，从零件认识到知识点讲解，
+                    全面提升教学能力，成为孩子们喜爱的乐高老师！
+                </p>
+                <div class="hero-actions">
+                    <a href="#modules" class="btn btn-primary">🚀 开始学习</a>
+                    <a href="#ppt" class="btn btn-secondary">📚 查看教程</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Modules -->
+    <section class="section" id="modules">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">培训模块</span>
+                <h2 class="section-title">系统化培训体系</h2>
+                <p class="section-desc">四大模块，全面提升您的乐高教学能力</p>
+            </div>
+            <div class="cards-grid">
+                <a href="parts.html" class="card">
+                    <div class="card-icon">🧱</div>
+                    <h3>零件认识</h3>
+                    <p>系统学习乐高大颗粒各种零件的名称、功能和使用方法</p>
+                    <div class="card-meta">
+                        <span>📦 30+ 零件</span>
+                        <span>⏱️ 2小时</span>
+                    </div>
+                </a>
+                <a href="knowledge.html" class="card">
+                    <div class="card-icon">⚙️</div>
+                    <h3>知识要点</h3>
+                    <p>掌握齿轮传动、互锁结构等核心机械原理</p>
+                    <div class="card-meta">
+                        <span>🔧 10+ 知识点</span>
+                        <span>⏱️ 4小时</span>
+                    </div>
+                </a>
+                <a href="teaching.html" class="card">
+                    <div class="card-icon">👨‍🏫</div>
+                    <h3>教学技巧</h3>
+                    <p>学习如何引导孩子、课堂管理、课程设计</p>
+                    <div class="card-meta">
+                        <span>💡 15+ 技巧</span>
+                        <span>⏱️ 3小时</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Points -->
+    <section class="section knowledge-section" id="knowledge">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">知识要点</span>
+                <h2 class="section-title">机械原理核心知识</h2>
+                <p class="section-desc">乐高搭建的核心在于机械原理的运用</p>
+            </div>
+            <div class="knowledge-grid">
+                <div class="knowledge-card">
+                    <h4>⚙️ 齿轮传动</h4>
+                    <ul>
+                        <li>平行传动 - 同向旋转</li>
+                        <li>垂直传动 - 改变方向</li>
+                        <li>加速/减速机构</li>
+                        <li>惰轮的作用</li>
+                    </ul>
+                </div>
+                <div class="knowledge-card">
+                    <h4>🏗️ 互锁结构</h4>
+                    <ul>
+                        <li>平面互锁 - 上下层交错</li>
+                        <li>内缩式互锁 - 金字塔</li>
+                        <li>外扩式互锁 - 倒金字塔</li>
+                        <li>两点固定原则</li>
+                    </ul>
+                </div>
+                <div class="knowledge-card">
+                    <h4>🔩 常用结构</h4>
+                    <ul>
+                        <li>两点固定</li>
+                        <li>三点固定</li>
+                        <li>三角形稳定性</li>
+                        <li>四边形可变性</li>
+                    </ul>
+                </div>
+                <div class="knowledge-card">
+                    <h4>🎯 传动方式</h4>
+                    <ul>
+                        <li>齿轮传动</li>
+                        <li>皮带传动</li>
+                        <li>链条传动</li>
+                        <li>蜗轮蜗杆</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parts Recognition -->
+    <section class="section parts-section" id="parts">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">零件认识</span>
+                <h2 class="section-title">乐高9656教具零件</h2>
+                <p class="section-desc">掌握这些零件，做合格的乐高老师</p>
+            </div>
+            <div class="parts-grid">
+                <div class="part-item">
+                    <div class="part-icon">🧱</div>
+                    <div class="part-name">砖块</div>
+                    <div class="part-desc">基础搭建单元</div>
+                </div>
+                <div class="part-item">
+                    <div class="part-icon">📐</div>
+                    <div class="part-name">板</div>
+                    <div class="part-desc">平面基础</div>
+                </div>
+                <div class="part-item">
+                    <div class="part-icon">⚙️</div>
+                    <div class="part-name">齿轮</div>
+                    <div class="part-desc">传动零件</div>
+                </div>
+                <div class="part-item">
+                    <div class="part-icon">🔧</div>
+                    <div class="part-name">轴</div>
+                    <div class="part-desc">连接转动</div>
+                </div>
+                <div class="part-item">
+                    <div class="part-icon">🔩</div>
+                    <div class="part-name">销</div>
+                    <div class="part-desc">连接固定</div>
+                </div>
+                <div class="part-item">
+                    <div class="part-icon">🦴</div>
+                    <div class="part-name">梁</div>
+                    <div class="part-desc">结构支撑</div>
+                </div>
+                <div class="part-item">
+                    <div class="part-icon">🎯</div>
+                    <div class="part-name">轴套</div>
+                    <div class="part-desc">限位固定</div>
+                </div>
+                <div class="part-item">
+                    <div class="part-icon">🔌</div>
+                    <div class="part-name">连接器</div>
+                    <div class="part-desc">角度连接</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PPT Resources -->
+    <section class="section ppt-section" id="ppt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">PPT教学资源</span>
+                <h2 class="section-title">配套教学课件</h2>
+                <p class="section-desc" style="color: var(--gray-light);">下载教学PPT，快速上手课程</p>
+            </div>
+            <div class="ppt-grid">
+                <div class="ppt-card">
+                    <h4>📚 乐高基础入门</h4>
+                    <p>乐高教育理念、课程体系介绍、教学方法</p>
+                    <a href="#" class="ppt-download">⬇️ 下载PPT</a>
+                </div>
+                <div class="ppt-card">
+                    <h4>🧱 零件认识课件</h4>
+                    <p>9656教具零件详细介绍、功能说明</p>
+                    <a href="#" class="ppt-download">⬇️ 下载PPT</a>
+                </div>
+                <div class="ppt-card">
+                    <h4>⚙️ 齿轮传动原理</h4>
+                    <p>齿轮传动知识点讲解、案例演示</p>
+                    <a href="#" class="ppt-download">⬇️ 下载PPT</a>
+                </div>
+                <div class="ppt-card">
+                    <h4>🏗️ 互锁结构教学</h4>
+                    <p>6种互锁结构详解、搭建技巧</p>
+                    <a href="#" class="ppt-download">⬇️ 下载PPT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <span>🎓</span> 乐造AI教务平台
+            </div>
+            <p>© 2026 乐造AI科技教育中心 | 让每个孩子成为创造者</p>
+        </div>
+    </footer>
+</body>
+</html>
