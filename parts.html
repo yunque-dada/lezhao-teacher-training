@@ -37,11 +37,13 @@
         .tab-content.active { display: block; }
         
         /* 零件卡片 */
-        .parts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+        .parts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
         .part-card { background: var(--white); border-radius: 1rem; padding: 1rem; text-align: center; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 2px solid transparent; }
         .part-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); border-color: var(--primary); }
         
-        .part-visual { height: 70px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; }
+        .part-visual { height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; }
+        .part-visual img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; }
+        
         .part-name { font-weight: 600; font-size: 0.9rem; color: var(--dark); }
         .part-desc { font-size: 0.75rem; color: var(--gray); }
         .part-id { font-size: 0.7rem; color: var(--primary); font-weight: 600; margin-top: 0.3rem; }
@@ -50,9 +52,6 @@
         .cat-title { display: flex; align-items: center; gap: 0.5rem; margin: 1.5rem 0 1rem; padding: 0.8rem 1rem; background: var(--white); border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         .cat-title h3 { font-size: 1rem; flex: 1; }
         .cat-title .badge { background: var(--primary); color: white; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.75rem; }
-        
-        /* SVG 零件样式 */
-        .lego-svg { width: 60px; height: 45px; }
         
         .footer { background: var(--dark); color: var(--gray); padding: 2rem 0; text-align: center; }
         
@@ -83,7 +82,7 @@
     <section class="hero">
         <div class="container">
             <h1>🧱 乐高9656零件大全</h1>
-            <p>190+零件详解 - 点击查看</p>
+            <p>190+零件详解 - AI实拍图 - 点击查看</p>
         </div>
     </section>
 
@@ -100,54 +99,54 @@
             
             <!-- 砖块 -->
             <div id="bricks" class="tab-content active">
-                <div class="cat-title"><span style="font-size:1.3rem">🧱</span><h3>砖块 Bricks - 基础搭建</h3><span class="badge">12种</span></div>
+                <div class="cat-title"><span style="font-size:1.3rem">🧱</span><h3>砖块 Bricks - 基础搭建</h3><span class="badge">AI实拍</span></div>
                 <div class="parts-grid">
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 60 40"><rect x="2" y="8" width="56" height="32" rx="3" fill="#ef4444"/><rect x="8" y="2" width="12" height="10" rx="2" fill="#fca5a5"/><rect x="24" y="2" width="12" height="10" rx="2" fill="#fca5a5"/><rect x="40" y="2" width="12" height="10" rx="2" fill="#fca5a5"/></svg>
+                            <img src="assets/brick-2x4-red.png" alt="2x4红砖">
                         </div>
                         <div class="part-name">2×4 砖块</div>
-                        <div class="part-desc">基础单元</div>
+                        <div class="part-desc">红色基础单元</div>
                         <div class="part-id">#3001 🔴</div>
                     </div>
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 60 40"><rect x="2" y="8" width="44" height="32" rx="3" fill="#3b82f6"/><rect x="8" y="2" width="12" height="10" rx="2" fill="#93c5fd"/><rect x="26" y="2" width="12" height="10" rx="2" fill="#93c5fd"/></svg>
+                            <img src="assets/brick-2x4-blue.png" alt="2x4蓝砖">
                         </div>
-                        <div class="part-name">2×3 砖块</div>
-                        <div class="part-desc">矩形</div>
-                        <div class="part-id">#3002 🔵</div>
+                        <div class="part-name">2×4 砖块</div>
+                        <div class="part-desc">蓝色基础单元</div>
+                        <div class="part-id">#3001 🔵</div>
                     </div>
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 40 40"><rect x="2" y="8" width="36" height="32" rx="3" fill="#10b981"/><rect x="6" y="2" width="12" height="10" rx="2" fill="#6ee7b7"/><rect x="22" y="2" width="12" height="10" rx="2" fill="#6ee7b7"/></svg>
+                            <img src="assets/brick-2x4-green.png" alt="2x4绿砖">
+                        </div>
+                        <div class="part-name">2×4 砖块</div>
+                        <div class="part-desc">绿色基础单元</div>
+                        <div class="part-id">#3001 🟢</div>
+                    </div>
+                    <div class="part-card">
+                        <div class="part-visual">
+                            <img src="assets/brick-2x2-yellow.png" alt="2x2黄砖">
                         </div>
                         <div class="part-name">2×2 砖块</div>
-                        <div class="part-desc">正方</div>
-                        <div class="part-id">#3003 🟢</div>
+                        <div class="part-desc">黄色正方</div>
+                        <div class="part-id">#3003 🟡</div>
                     </div>
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 60 20"><rect x="2" y="4" width="56" height="16" rx="2" fill="#eab308"/><rect x="8" y="0" width="12" height="8" rx="2" fill="#fde047"/><rect x="24" y="0" width="12" height="8" rx="2" fill="#fde047"/><rect x="40" y="0" width="12" height="8" rx="2" fill="#fde047"/></svg>
-                        </div>
-                        <div class="part-name">1×4 砖块</div>
-                        <div class="part-desc">长条</div>
-                        <div class="part-id">#3004 🟡</div>
-                    </div>
-                    <div class="part-card">
-                        <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 35 20"><rect x="2" y="4" width="30" height="16" rx="2" fill="#ef4444"/><rect x="6" y="0" width="10" height="8" rx="2" fill="#fca5a5"/><rect x="20" y="0" width="10" height="8" rx="2" fill="#fca5a5"/></svg>
+                            <img src="assets/brick-1x2-red.png" alt="1x2红砖">
                         </div>
                         <div class="part-name">1×2 砖块</div>
-                        <div class="part-desc">短条</div>
+                        <div class="part-desc">红色短条</div>
                         <div class="part-id">#3004 🔴</div>
                     </div>
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 25 20"><rect x="2" y="4" width="20" height="16" rx="2" fill="#3b82f6"/><circle cx="8" cy="4" r="3" fill="#93c5fd"/><circle cx="16" cy="4" r="3" fill="#93c5fd"/></svg>
+                            <img src="assets/brick-1x1-blue.png" alt="1x1蓝砖">
                         </div>
                         <div class="part-name">1×1 砖块</div>
-                        <div class="part-desc">最小</div>
+                        <div class="part-desc">蓝色最小单元</div>
                         <div class="part-id">#3008 🔵</div>
                     </div>
                 </div>
@@ -155,171 +154,99 @@
             
             <!-- 板 -->
             <div id="plates" class="tab-content">
-                <div class="cat-title"><span style="font-size:1.3rem">📐</span><h3>板 Plates - 薄型基础</h3><span class="badge">10种</span></div>
+                <div class="cat-title"><span style="font-size:1.3rem">📐</span><h3>板 Plates - 薄型基础</h3><span class="badge">AI实拍</span></div>
                 <div class="parts-grid">
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 60 12"><rect x="2" y="2" width="56" height="10" rx="2" fill="#94a3b8"/><circle cx="10" cy="3" r="2" fill="#cbd5e1"/><circle cx="30" cy="3" r="2" fill="#cbd5e1"/><circle cx="50" cy="3" r="2" fill="#cbd5e1"/></svg>
+                            <img src="assets/plate-2x4-gray.png" alt="2x4板">
                         </div>
                         <div class="part-name">2×4 板</div>
-                        <div class="part-desc">薄型基础</div>
+                        <div class="part-desc">灰色薄型基础</div>
                         <div class="part-id">#3023</div>
-                    </div>
-                    <div class="part-card">
-                        <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 45 12"><rect x="2" y="2" width="40" height="10" rx="2" fill="#94a3b8"/><circle cx="8" cy="3" r="2" fill="#cbd5e1"/><circle cx="22" cy="3" r="2" fill="#cbd5e1"/><circle cx="36" cy="3" r="2" fill="#cbd5e1"/></svg>
-                        </div>
-                        <div class="part-name">2×3 板</div>
-                        <div class="part-desc">薄型矩形</div>
-                        <div class="part-id">#3022</div>
-                    </div>
-                    <div class="part-card">
-                        <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 30 12"><rect x="2" y="2" width="26" height="10" rx="2" fill="#94a3b8"/><circle cx="8" cy="3" r="2" fill="#cbd5e1"/><circle cx="21" cy="3" r="2" fill="#cbd5e1"/></svg>
-                        </div>
-                        <div class="part-name">2×2 板</div>
-                        <div class="part-desc">薄型正方</div>
-                        <div class="part-id">#3021</div>
                     </div>
                 </div>
             </div>
             
             <!-- 齿轮 -->
             <div id="gears" class="tab-content">
-                <div class="cat-title"><span style="font-size:1.3rem">⚙️</span><h3>齿轮 Gears - 传动零件</h3><span class="badge">8种</span></div>
+                <div class="cat-title"><span style="font-size:1.3rem">⚙️</span><h3>齿轮 Gears - 传动零件</h3><span class="badge">AI实拍</span></div>
                 <div class="parts-grid">
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="10" fill="#374151" stroke="#374151" stroke-width="3" stroke-dasharray="4 2"/><circle cx="25" cy="25" r="4" fill="#6b7280"/></svg>
+                            <img src="assets/gear-8t-black.png" alt="8齿齿轮">
                         </div>
                         <div class="part-name">8齿齿轮</div>
-                        <div class="part-desc">小齿轮</div>
+                        <div class="part-desc">黑色小齿轮</div>
                         <div class="part-id">#3647</div>
                     </div>
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="16" fill="none" stroke="#374151" stroke-width="4" stroke-dasharray="5 3"/><circle cx="25" cy="25" r="5" fill="#6b7280"/></svg>
+                            <img src="assets/gear-24t-black.png" alt="24齿齿轮">
                         </div>
                         <div class="part-name">24齿齿轮</div>
-                        <div class="part-desc">中齿轮</div>
+                        <div class="part-desc">黑色中齿轮</div>
                         <div class="part-id">#3648</div>
-                    </div>
-                    <div class="part-card">
-                        <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 55 55"><circle cx="27" cy="27" r="20" fill="none" stroke="#374151" stroke-width="5" stroke-dasharray="6 3"/><circle cx="27" cy="27" r="6" fill="#6b7280"/></svg>
-                        </div>
-                        <div class="part-name">40齿齿轮</div>
-                        <div class="part-desc">大齿轮</div>
-                        <div class="part-id">#3649</div>
-                    </div>
-                    <div class="part-card">
-                        <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 45 45"><path d="M22 2 L28 8 L40 8 L32 18 L35 30 L25 25 L15 30 L18 18 L8 8 L20 8 Z" fill="#374151"/><circle cx="24" cy="20" r="5" fill="#6b7280"/></svg>
-                        </div>
-                        <div class="part-name">冠齿轮</div>
-                        <div class="part-desc">垂直传动</div>
-                        <div class="part-id">#3659</div>
-                    </div>
-                    <div class="part-card">
-                        <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 40 40"><rect x="15" y="0" width="10" height="40" rx="2" fill="#374151"/><rect x="0" y="15" width="40" height="10" rx="2" fill="#374151"/></svg>
-                        </div>
-                        <div class="part-name">蜗轮</div>
-                        <div class="part-desc">自锁功能</div>
-                        <div class="part-id">#3658</div>
                     </div>
                 </div>
             </div>
             
             <!-- 梁 -->
             <div id="beams" class="tab-content">
-                <div class="cat-title"><span style="font-size:1.3rem">🦴</span><h3>梁 Beams - 结构支撑</h3><span class="badge">15种</span></div>
+                <div class="cat-title"><span style="font-size:1.3rem">🦴</span><h3>梁 Beams - 结构支撑</h3><span class="badge">开发中</span></div>
                 <div class="parts-grid">
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 70 12"><rect x="2" y="4" width="66" height="8" rx="2" fill="#64748b"/><circle cx="10" cy="5" r="2.5" fill="#94a3b8"/><circle cx="25" cy="5" r="2.5" fill="#94a3b8"/><circle cx="40" cy="5" r="2.5" fill="#94a3b8"/><circle cx="55" cy="5" r="2.5" fill="#94a3b8"/></svg>
+                            <svg class="lego-svg" viewBox="0 0 70 12" style="width:80px;height:30px"><rect x="2" y="4" width="66" height="8" rx="2" fill="#64748b"/><circle cx="10" cy="5" r="2.5" fill="#94a3b8"/><circle cx="25" cy="5" r="2.5" fill="#94a3b8"/><circle cx="40" cy="5" r="2.5" fill="#94a3b8"/><circle cx="55" cy="5" r="2.5" fill="#94a3b8"/></svg>
                         </div>
                         <div class="part-name">5孔梁</div>
-                        <div class="part-desc">短距</div>
+                        <div class="part-desc">灰色短距</div>
                         <div class="part-id">#3705</div>
                     </div>
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 90 12"><rect x="2" y="4" width="86" height="8" rx="2" fill="#64748b"/><circle cx="10" cy="5" r="2.5" fill="#94a3b8"/><circle cx="22" cy="5" r="2.5" fill="#94a3b8"/><circle cx="34" cy="5" r="2.5" fill="#94a3b8"/><circle cx="46" cy="5" r="2.5" fill="#94a3b8"/><circle cx="58" cy="5" r="2.5" fill="#94a3b8"/><circle cx="70" cy="5" r="2.5" fill="#94a3b8"/><circle cx="82" cy="5" r="2.5" fill="#94a3b8"/></svg>
+                            <svg class="lego-svg" viewBox="0 0 90 12" style="width:100px;height:30px"><rect x="2" y="4" width="86" height="8" rx="2" fill="#64748b"/><circle cx="10" cy="5" r="2.5" fill="#94a3b8"/><circle cx="22" cy="5" r="2.5" fill="#94a3b8"/><circle cx="34" cy="5" r="2.5" fill="#94a3b8"/><circle cx="46" cy="5" r="2.5" fill="#94a3b8"/><circle cx="58" cy="5" r="2.5" fill="#94a3b8"/><circle cx="70" cy="5" r="2.5" fill="#94a3b8"/><circle cx="82" cy="5" r="2.5" fill="#94a3b8"/></svg>
                         </div>
                         <div class="part-name">7孔梁</div>
-                        <div class="part-desc">常用</div>
+                        <div class="part-desc">灰色常用</div>
                         <div class="part-id">#3706</div>
-                    </div>
-                    <div class="part-card">
-                        <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 35 35"><line x1="5" y1="30" x2="30" y2="5" stroke="#64748b" stroke-width="8" stroke-linecap="round"/><circle cx="10" cy="25" r="3" fill="#94a3b8"/><circle cx="17" cy="18" r="3" fill="#94a3b8"/><circle cx="25" cy="10" r="3" fill="#94a3b8"/></svg>
-                        </div>
-                        <div class="part-name">角度梁</div>
-                        <div class="part-desc">斜角</div>
-                        <div class="part-id">#32014</div>
                     </div>
                 </div>
             </div>
             
             <!-- 轴 -->
             <div id="axles" class="tab-content">
-                <div class="cat-title"><span style="font-size:1.3rem">🔧</span><h3>轴 Axles - 传动轴</h3><span class="badge">8种</span></div>
+                <div class="cat-title"><span style="font-size:1.3rem">🔧</span><h3>轴 Axles - 传动轴</h3><span class="badge">开发中</span></div>
                 <div class="parts-grid">
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 70 10"><rect x="2" y="3" width="66" height="6" rx="3" fill="#374151"/><rect x="4" y="2" width="4" height="8" rx="1" fill="#6b7280"/></svg>
+                            <img src="assets/axle-pin-black.png" alt="轴销">
                         </div>
-                        <div class="part-name">长轴 6格</div>
-                        <div class="part-desc">长距离</div>
-                        <div class="part-id">#4006</div>
-                    </div>
-                    <div class="part-card">
-                        <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 50 10"><rect x="2" y="3" width="46" height="6" rx="3" fill="#374151"/></svg>
-                        </div>
-                        <div class="part-name">中轴 4格</div>
-                        <div class="part-desc">中等</div>
-                        <div class="part-id">#4005</div>
-                    </div>
-                    <div class="part-card">
-                        <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 30 10"><rect x="2" y="3" width="26" height="6" rx="3" fill="#374151"/></svg>
-                        </div>
-                        <div class="part-name">短轴 2格</div>
-                        <div class="part-desc">短距离</div>
-                        <div class="part-id">#4004</div>
+                        <div class="part-name">轴销</div>
+                        <div class="part-desc">黑色连接件</div>
+                        <div class="part-id">#4477</div>
                     </div>
                 </div>
             </div>
             
             <!-- 销 -->
             <div id="pins" class="tab-content">
-                <div class="cat-title"><span style="font-size:1.3rem">🔩</span><h3>销 Pins - 连接件</h3><span class="badge">10种</span></div>
+                <div class="cat-title"><span style="font-size:1.3rem">🔩</span><h3>销 Pins - 连接件</h3><span class="badge">开发中</span></div>
                 <div class="parts-grid">
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 15 35"><rect x="4" y="0" width="7" height="35" rx="3" fill="#374151"/></svg>
+                            <svg class="lego-svg" viewBox="0 0 15 35" style="width:30px;height:70px"><rect x="4" y="0" width="7" height="35" rx="3" fill="#374151"/></svg>
                         </div>
                         <div class="part-name">普通销</div>
-                        <div class="part-desc">基本</div>
+                        <div class="part-desc">黑色基本连接</div>
                         <div class="part-id">#3674</div>
                     </div>
                     <div class="part-card">
                         <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 18 35"><rect x="6" y="0" width="6" height="35" rx="2" fill="#1f2937"/><rect x="3" y="28" width="12" height="6" rx="1" fill="#4b5563"/></svg>
+                            <svg class="lego-svg" viewBox="0 0 18 35" style="width:35px;height:70px"><rect x="6" y="0" width="6" height="35" rx="2" fill="#1f2937"/><rect x="3" y="28" width="12" height="6" rx="1" fill="#4b5563"/></svg>
                         </div>
                         <div class="part-name">摩擦销</div>
-                        <div class="part-desc">防滑</div>
+                        <div class="part-desc">黑色防滑连接</div>
                         <div class="part-id">#3674a</div>
-                    </div>
-                    <div class="part-card">
-                        <div class="part-visual">
-                            <svg class="lego-svg" viewBox="0 0 12 30"><rect x="3" y="0" width="6" height="30" rx="2" fill="#6b7280"/></svg>
-                        </div>
-                        <div class="part-name">轴销</div>
-                        <div class="part-desc">连接</div>
-                        <div class="part-id">#4477</div>
                     </div>
                 </div>
             </div>
@@ -341,6 +268,13 @@
                         <tr><td>梁</td><td>7孔梁</td><td>3706</td><td>灰</td><td>4</td><td>结构支撑</td></tr>
                     </tbody>
                 </table>
+            </div>
+            
+            <!-- AI图片说明 -->
+            <div class="table-box" style="margin-top:2rem;background:linear-gradient(135deg,#fef3c7,#fde68a);">
+                <h3 style="margin-bottom:0.5rem">🤖 AI生成零件图片</h3>
+                <p style="font-size:0.9rem;color:#92400e">本页零件照片由豆包AI生成，真实还原乐高零件细节。如需更多零件图片，请联系客服。</p>
+                <p style="font-size:0.8rem;color:#b45309;margin-top:0.5rem">已生成图片：11张 | 待生成：40+张</p>
             </div>
         </div>
     </section>
